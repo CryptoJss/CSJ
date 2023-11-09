@@ -1,3 +1,13 @@
+@if ((session('danger') && session('danger') != "") || (session('info') && session('info') != ""))
+    <div class="col s12 contentAlert">
+        <div class="text-white-100 text-lg font-bold p-2 {{ (session('danger'))?'bg-red-500':'bg-green-500' }}" >
+            <i class="material-icons prefix left">{{ (session('danger'))?'priority_high':'check' }}</i>
+            <span>{{ (session('danger'))?session('danger'):session('info') }}</span>
+            <a href="#" class="waves-effect waves-teal btn-flat right"><i class="material-icons medium">clear</i></a>
+        </div>
+    </div>
+@endif
+
 <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

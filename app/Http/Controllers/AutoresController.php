@@ -42,6 +42,9 @@ class AutoresController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'Nombre' => 'required'
+        ]);
         $autores = new Autores();
         $autores->Nombre     = $request->Nombre;
         $autores->Apellido   = $request->Apellido;
